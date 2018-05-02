@@ -1,7 +1,13 @@
 # Bayesian Hacking with Python
 
 ## Brief Description
-What is the probability of correctly solving a Baye's theorem problem given you have not reviewed statistics in years?  See an example of solving a Baye's theorem problem by actually simulating the system, while visualizing the system converging via a live-streamed plot.
+Say you have a bag of 99 fair coins and 1 coin that has heads on both sides.  You draw a coin from the bag and flip it 10 times, each time showing heads.  What is the probability you drew the unfair coin?
+
+This talk will illustrate how to simulate what seems like a complex statistics problem using your Python hacking skills.
 
 ## Detailed Abstract
-Statistics can often be unintuitive. With computers, we have a simple means to simulate complex situations and systems. In this talk, I will demonstrate how you can use hacking skills to simulate real systems representing tricky Bayesian statistics problem. You will see how you can visualize the simulation convergence and compare the result via a live-streamed plot of the results.
+Statistics can often be unintuitive, and even frustrating to wade through boring equations. Can I use my ability to program to hack my way to a solution?
+
+Computers are great as simulating complex situations.  If we can define a system, the computer can quickly iterate through thousands or millions of possibilities to get to converge on an answer. In this talk, we will see how to to use hacking skills to simulate real systems. Additionally, we will be able to watch a live-streamed plot of the results as the computer converges on a solution.
+
+
