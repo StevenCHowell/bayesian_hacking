@@ -8,6 +8,10 @@ This talk will illustrate how to simulate what seems like a complex statistics p
 ## Detailed Abstract
 Statistics can often be unintuitive, and even frustrating to wade through boring equations. Can I use my ability to program to hack my way to a solution?
 
-Computers are great as simulating complex situations.  If we can define a system, the computer can quickly iterate through thousands or millions of possibilities to get to converge on an answer. In this talk, we will see how to to use hacking skills to simulate real systems. Additionally, we will be able to watch a live-streamed plot of the results as the computer converges on a solution.
+Computers are great at simulating complex situations.  If we can define a system, the computer can quickly iterate through thousands or millions of possibilities to get to converge on an answer. In this talk, we will see how to to use hacking skills to simulate real systems. Additionally, we will be able to watch a live-streamed plot of the results as the computer converges on a solution.
 
 
+_Outline_
+10 min: Introduce the problem, Bayes' Theorem, the calculate the analytic solution.
+15 min: Demonstrating how we can simulate the problem in Python.
+5 min: Demonstrating a live-streamed plot analyzing the results.
