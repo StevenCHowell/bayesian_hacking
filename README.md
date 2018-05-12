@@ -1,9 +1,17 @@
 # Bayesian Hacking with Python
+**Steven C. Howell, PhD**  
+Data Scientist at Booz Allen Hamilton  
+howell_steven@bah.com  
+[@StevenCHowell](https://twitter.com/StevenCHowell)  
 
 ## Brief Description
-Say you have a bag of 99 fair coins and 1 coin that has heads on both sides.  You draw a coin from the bag and flip it 10 times, each time showing heads.  What is the probability you drew the unfair coin?
+Say you have a bag of **99 fair coins** and **1 unfair coin** that has heads on both sides.  You draw a coin from the bag and **flip it 10 times, each time showing heads**.  
+
+**What is the probability you drew the unfair coin?**
 
 This talk will illustrate how to simulate what seems like a complex statistics problem using your Python hacking skills.
+
+Inspired by [Jake Vanderplas'](http://vanderplas.com/) PyCon 2016 talk "[Statistics for Hacker](https://www.youtube.com/watch?v=Iq9DzN6mvYA)".
 
 ## Detailed Abstract
 Statistics can often be unintuitive, and even frustrating to wade through boring equations. Can I use my ability to program to hack my way to a solution?
