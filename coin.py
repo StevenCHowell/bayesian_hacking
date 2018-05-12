@@ -82,7 +82,7 @@ def start_over():
     n_all_heads = 0
     n_unfair = 0
 
-    test_data.stream({'x': [0], 'y': [0]}, 1)
+    test_data.stream({'x': [1], 'y': [1]}, 1)
     bokeh.io.curdoc().remove_periodic_callback(callback_id)
 
 
