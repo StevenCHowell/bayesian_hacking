@@ -3,7 +3,7 @@
 Data Scientist at Booz Allen Hamilton  
 howell_steven@bah.com  
 [@StevenCHowell](https://twitter.com/StevenCHowell)  
-
+Lexington Park, MD
 ## Brief Description
 Say you have a bag of **99 fair coins** and **1 unfair coin** that has heads on both sides.  You draw a coin from the bag and **flip it 10 times, each time showing heads**.  
 
