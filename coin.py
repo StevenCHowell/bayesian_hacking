@@ -6,14 +6,6 @@ import bokeh.layouts
 from bokeh.palettes import Category10_10 as palette
 
 
-# p_a = 1.0 / 100.0
-# p_ba = 1.0
-# p_na = 99.0 / 100.0
-# p_bna = 0.5 ** 10
-# p_b = p_ba * p_a + p_bna * p_na
-# p_ab = p_ba * p_a / p_b
-
-
 def flip_generator(coins, *, n_flips=10):
     n_coins = len(coins)
     
@@ -38,13 +30,21 @@ def flip_generator(coins, *, n_flips=10):
         yield coin_unfair
 
 
+def speed_update(attrname, old, new):
+    global callback_id
+    bokeh.io.curdoc().remove_periodic_callback(callback_id)
+    callback_id = bokeh.io.curdoc().add_periodic_callback(animate_update, int(speed.value))
+
+
 def animate():
     global callback_id
-    if button.label == '► Play':
-        button.label = '❚❚ Pause'
-        callback_id = bokeh.io.curdoc().add_periodic_callback(animate_update, 200)
+    print('in animate')
+    if play.label == '> Play':
+        print('in if')
+        play.label = '|| Pause'
+        callback_id = bokeh.io.curdoc().add_periodic_callback(animate_update, int(speed.value))
     else:
-        button.label = '► Play'
+        play.label = '> Play'
         
         bokeh.io.curdoc().remove_periodic_callback(callback_id)
 
@@ -53,10 +53,10 @@ def animate_update():
     global n_all_heads
     global n_unfair
     n_max = 100000 
-    n_show = 500
+    n_show = 1000
 
     if n_all_heads > n_max:
-        bokeh.io.curdoct().remove_periodic_callback(callback_id)
+        bokeh.io.curdoc().remove_periodic_callback(callback_id)
     
     else:
         new_data = dict(x=[0], y=[0])
@@ -72,9 +72,18 @@ def animate_update():
             
             test_data.stream(new_data, n_show)
 
-            bokeh.io.push_notebook(handle=handle)
 
-            # time.sleep(slider.value)
+def start_over():
+    global n_all_heads
+    global n_unfair
+
+    play.label = '> Play'
+    
+    n_all_heads = 0
+    n_unfair = 0
+
+    test_data.stream({'x': [0], 'y': [0]}, 1)
+    bokeh.io.curdoc().remove_periodic_callback(callback_id)
 
 
 # 100 coin all fair
@@ -85,7 +94,11 @@ coins = np.zeros(n_coins, dtype=np.int)
 coins[np.random.randint(1, 100, 1)] = 1  
 
 # generate the figure
-fig = bokeh.plotting.figure(plot_width=800, plot_height=400)
+fig = bokeh.plotting.figure(
+    plot_width=800, plot_height=400,
+    y_axis_label='Fraction of times 10-heads was from the unfair coin',
+    x_axis_label='N 10-heads',
+)
 test_data = bokeh.models.sources.ColumnDataSource(data=dict(x=[0], y=[0]))
 line = fig.line("x", "y", source=test_data)
 
@@ -95,17 +108,25 @@ n_all_heads = 0
 n_unfair = 0
 
 # define the speed slider
-slider = bokeh.models.Slider(start=0, end=1, value=1, step=0.1, title="Speed")
-# slider.on_change('value', slider_update)
+speed = bokeh.models.Select(
+    title=('Sample Period (ms)'),
+    value = '20',
+    options = [str(x) for x in [1, 5, 15, 20]]
+)
+speed.on_change('value', speed_update)
 
 # define the play button
-button = bokeh.models.Button(label='► Play', width=60)
-button.on_click(animate)
+play = bokeh.models.Button(label='> Play', width=60)
+play.on_click(animate)
+
+# define the reset button
+reset = bokeh.models.Button(label='Reset', width=60)
+reset.on_click(start_over)
 
 # layout the app
 layout = bokeh.layouts.layout([
     [fig],
-    [slider, button],
+    [speed, play, reset],
 ], sizing_mode='scale_width')
 bokeh.io.curdoc().add_root(layout)
 
