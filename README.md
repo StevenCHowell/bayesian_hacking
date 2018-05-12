@@ -1,4 +1,4 @@
-# Bayesian Hacking with Python
+# Bayesian Hacking with Python  [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/StevenCHowell/pyohio_2018_bayes/master?filepath=https%3A%2F%2Fgithub.com%2FStevenCHowell%2Fpyohio_2018_bayes%2Fblob%2Fmaster%2Fcoin.ipynb)
 **Steven C. Howell, PhD**  
 Data Scientist at Booz Allen Hamilton  
 howell_steven@bah.com  
