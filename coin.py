@@ -99,7 +99,7 @@ fig = bokeh.plotting.figure(
     y_axis_label='Fraction of times 10-heads was from the unfair coin',
     x_axis_label='N 10-heads',
 )
-test_data = bokeh.models.sources.ColumnDataSource(data=dict(x=[0], y=[0]))
+test_data = bokeh.models.sources.ColumnDataSource(data=dict(x=[1], y=[1]))
 line = fig.line("x", "y", source=test_data)
 
 # set the globals
